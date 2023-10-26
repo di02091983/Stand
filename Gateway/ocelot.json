@@ -1,19 +1,32 @@
 {
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:7106/"
+    "BaseUrl": "https://localhost:7095/"
   },
-  "ReRoutes": [
+  "Routes": [
     {
-      "UpstreamPathTemplate": "/gateway/GetCategories",
+      "UpstreamPathTemplate": "/gateway/Category",
       "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
-      "DownstreamPathTemplate": "/api/GetCategories",
-      "DownstreamScheme": "http",
+      "SwaggerKey": "Category",
+      "DownstreamPathTemplate": "/api/Category",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5285
+          "Port": 7050
         }
       ]
     }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "Category",
+      "Config": [
+        {
+          "Name": "Category API",
+          "Version": "v1",
+          "Url": "http://localhost:5285/swagger/v1/swagger.json"
+        }
+      ]
+    }    
   ]
 }

@@ -22,20 +22,20 @@ namespace Catalog.Controllers
         }
 
         [HttpGet(Name = "GetCategories")]
-        public async Task<IActionResult> GetCategories()
+        public async Task<IEnumerable<Category>> GetCategories()
         {
             try
             {
                 var categories = await _db.Categories.ToListAsync();
 
-                _mqService.SendMessage(categories);
+                //_mqService.SendMessage(categories);
                 
-                return Ok();
+                return categories;
             }
             catch (DbUpdateException e)
             {
                 _logger.LogError(e, "Exception in " + this.GetType().Name + "::" + System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name);
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return new List<Category>();
             }
         }
 
