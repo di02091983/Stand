@@ -4,14 +4,14 @@
   },
   "ReRoutes": [
     {
-      "UpstreamPathTemplate": "/gateway/Category",
+      "UpstreamPathTemplate": "/gateway/GetCategories",
       "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
-      "DownstreamPathTemplate": "/api/categories",
+      "DownstreamPathTemplate": "/api/GetCategories",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 80
+          "Port": 5285
         }
       ]
     }
