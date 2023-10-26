@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Catalog.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class BrandController : ControllerBase
     {
         readonly ApplicationDbContext _db;
