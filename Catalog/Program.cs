@@ -1,4 +1,5 @@
 using Catalog.Data;
+using Catalog.RabbitMq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -16,6 +17,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(dbConnectionString, ServerVersion.AutoDetect(dbConnectionString)
     )
 );
+
+builder.Services.AddScoped<IRabbitMqService, RabbitMqService>();
 
 var app = builder.Build();
 

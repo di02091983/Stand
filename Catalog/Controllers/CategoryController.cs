@@ -1,35 +1,41 @@
 using Catalog.Data;
 using Catalog.Models;
+using Catalog.RabbitMq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Catalog.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CategoryController : ControllerBase
     {
         readonly ApplicationDbContext _db;
         private readonly ILogger<CategoryController> _logger;
+        private readonly IRabbitMqService _mqService;
 
-        public CategoryController([FromServices] ApplicationDbContext db, ILogger<CategoryController> logger)
+        public CategoryController([FromServices] ApplicationDbContext db, ILogger<CategoryController> logger, IRabbitMqService mqService)
         {
             _db = db;
             _logger = logger;
+            _mqService = mqService;
         }
 
         [HttpGet(Name = "GetCategories")]
-        public async Task<IEnumerable<Category>> GetCategories()
+        public async Task<IActionResult> GetCategories()
         {
             try
             {
                 var categories = await _db.Categories.ToListAsync();
-                return categories;
+
+                _mqService.SendMessage(categories);
+                
+                return Ok();
             }
             catch (DbUpdateException e)
             {
                 _logger.LogError(e, "Exception in " + this.GetType().Name + "::" + System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name);
-                return new List<Category>();
+                return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
 
