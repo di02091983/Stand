@@ -41,6 +41,45 @@
           "Port": 7050
         }
       ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Order",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "SwaggerKey": "Buyer",
+      "DownstreamPathTemplate": "/api/Order",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7286
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/OrderDetail",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "SwaggerKey": "Buyer",
+      "DownstreamPathTemplate": "/api/OrderDetail",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7286
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Status",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "SwaggerKey": "Buyer",
+      "DownstreamPathTemplate": "/api/Status",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7286
+        }
+      ]
     }
   ],
   "SwaggerEndPoints": [
@@ -51,6 +90,16 @@
           "Name": "Catalog API",
           "Version": "v1",
           "Url": "http://localhost:5285/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "Buyer",
+      "Config": [
+        {
+          "Name": "Buyer API",
+          "Version": "v1",
+          "Url": "http://localhost:5116/swagger/v1/swagger.json"
         }
       ]
     }
