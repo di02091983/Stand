@@ -80,6 +80,58 @@
           "Port": 7286
         }
       ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/Delivery",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "SwaggerKey": "Courier",
+      "DownstreamPathTemplate": "/api/Delivery",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7248
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/DeliveryDetail",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "SwaggerKey": "Courier",
+      "DownstreamPathTemplate": "/api/DeliveryDetail",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7248
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/DeliveryStatus",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "SwaggerKey": "Courier",
+      "DownstreamPathTemplate": "/api/DeliveryStatus",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7248
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/DeliveryDetailStatus",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "SwaggerKey": "Courier",
+      "DownstreamPathTemplate": "/api/DeliveryDetailStatus",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7248
+        }
+      ]
     }
   ],
   "SwaggerEndPoints": [
@@ -100,6 +152,16 @@
           "Name": "Buyer API",
           "Version": "v1",
           "Url": "http://localhost:5116/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "Courier",
+      "Config": [
+        {
+          "Name": "Courier API",
+          "Version": "v1",
+          "Url": "http://localhost:5261/swagger/v1/swagger.json"
         }
       ]
     }
