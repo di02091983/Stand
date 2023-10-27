@@ -1,6 +1,5 @@
 using Catalog.Data;
 using Catalog.Models;
-using Catalog.RabbitMq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,13 +11,11 @@ namespace Catalog.Controllers
     {
         readonly ApplicationDbContext _db;
         private readonly ILogger<CategoryController> _logger;
-        private readonly IRabbitMqService _mqService;
 
-        public CategoryController([FromServices] ApplicationDbContext db, ILogger<CategoryController> logger, IRabbitMqService mqService)
+        public CategoryController([FromServices] ApplicationDbContext db, ILogger<CategoryController> logger)
         {
             _db = db;
             _logger = logger;
-            _mqService = mqService;
         }
 
         [HttpGet(Name = "GetCategories")]
@@ -28,8 +25,6 @@ namespace Catalog.Controllers
             {
                 var categories = await _db.Categories.ToListAsync();
 
-                //_mqService.SendMessage(categories);
-                
                 return categories;
             }
             catch (DbUpdateException e)
