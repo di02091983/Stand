@@ -49,5 +49,51 @@ namespace Courier.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+
+        [HttpPut(Name = "DoDelivery")]
+        public async Task<IActionResult> DoDelivery(Guid deliveryId)
+        {
+            try
+            {
+                var delivery = await _db.Deliveries.Where(x => x.Id == deliveryId).FirstOrDefaultAsync();
+
+                if (delivery == null) return BadRequest();
+
+                delivery.StatusDeliveryId = 2;
+
+                _db.Deliveries.Update(delivery);
+
+                await _db.SaveChangesAsync();
+                return Ok();
+            }
+            catch (DbUpdateException e)
+            {
+                _logger.LogError(e, "Exception in " + this.GetType().Name + "::" + System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name);
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        [HttpDelete(Name = "CancelDelivery")]
+        public async Task<IActionResult> CancelDelivery(Guid deliveryId)
+        {
+            try
+            {
+                var delivery = await _db.Deliveries.Where(x => x.Id == deliveryId).FirstOrDefaultAsync();
+
+                if (delivery == null) return BadRequest();
+
+                delivery.StatusDeliveryId = 3;
+
+                _db.Deliveries.Update(delivery);
+
+                await _db.SaveChangesAsync();
+                return Ok();
+            }
+            catch (DbUpdateException e)
+            {
+                _logger.LogError(e, "Exception in " + this.GetType().Name + "::" + System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name);
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
     }
 }
