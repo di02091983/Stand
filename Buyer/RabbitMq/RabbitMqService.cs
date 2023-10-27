@@ -27,7 +27,7 @@ namespace Buyer.RabbitMq
                 var body = Encoding.UTF8.GetBytes(message);
 
                 channel.BasicPublish(exchange: "",
-                               routingKey: "BuyerToCatalog",
+                               routingKey: "AddOrderDetail",
                                basicProperties: null,
                                body: body);
             }
