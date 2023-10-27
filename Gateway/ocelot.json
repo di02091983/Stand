@@ -5,7 +5,7 @@
   "Routes": [
     {
       "UpstreamPathTemplate": "/gateway/Category",
-      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ],
       "SwaggerKey": "Catalog",
       "DownstreamPathTemplate": "/api/Category",
       "DownstreamScheme": "https",
@@ -18,7 +18,7 @@
     },
     {
       "UpstreamPathTemplate": "/gateway/Brand",
-      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ],
       "SwaggerKey": "Catalog",
       "DownstreamPathTemplate": "/api/Brand",
       "DownstreamScheme": "https",
@@ -31,7 +31,7 @@
     },
     {
       "UpstreamPathTemplate": "/gateway/Product",
-      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ],
       "SwaggerKey": "Catalog",
       "DownstreamPathTemplate": "/api/Product",
       "DownstreamScheme": "https",
@@ -44,7 +44,7 @@
     },
     {
       "UpstreamPathTemplate": "/gateway/Order",
-      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ],
       "SwaggerKey": "Buyer",
       "DownstreamPathTemplate": "/api/Order",
       "DownstreamScheme": "https",
@@ -57,7 +57,7 @@
     },
     {
       "UpstreamPathTemplate": "/gateway/OrderDetail",
-      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ],
       "SwaggerKey": "Buyer",
       "DownstreamPathTemplate": "/api/OrderDetail",
       "DownstreamScheme": "https",
@@ -70,7 +70,7 @@
     },
     {
       "UpstreamPathTemplate": "/gateway/Status",
-      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ],
       "SwaggerKey": "Buyer",
       "DownstreamPathTemplate": "/api/Status",
       "DownstreamScheme": "https",
@@ -83,7 +83,7 @@
     },
     {
       "UpstreamPathTemplate": "/gateway/Delivery",
-      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ],
       "SwaggerKey": "Courier",
       "DownstreamPathTemplate": "/api/Delivery",
       "DownstreamScheme": "https",
@@ -96,7 +96,7 @@
     },
     {
       "UpstreamPathTemplate": "/gateway/DeliveryDetail",
-      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ],
       "SwaggerKey": "Courier",
       "DownstreamPathTemplate": "/api/DeliveryDetail",
       "DownstreamScheme": "https",
@@ -109,7 +109,7 @@
     },
     {
       "UpstreamPathTemplate": "/gateway/DeliveryStatus",
-      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ],
       "SwaggerKey": "Courier",
       "DownstreamPathTemplate": "/api/DeliveryStatus",
       "DownstreamScheme": "https",
@@ -122,7 +122,7 @@
     },
     {
       "UpstreamPathTemplate": "/gateway/DeliveryDetailStatus",
-      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ],
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET", "DELETE" ],
       "SwaggerKey": "Courier",
       "DownstreamPathTemplate": "/api/DeliveryDetailStatus",
       "DownstreamScheme": "https",
