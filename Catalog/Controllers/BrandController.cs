@@ -34,7 +34,7 @@ namespace Catalog.Controllers
         }
 
         [HttpPost(Name = "AddBrand")]
-        public async Task<IActionResult> AddCategory(Brand brand)
+        public async Task<IActionResult> AddBrand(Brand brand)
         {
             _db.Brands.Add(brand);
 
