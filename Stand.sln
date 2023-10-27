@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway", "Gateway\Gateway.csproj", "{532413A3-E1EF-4834-A773-00609967ED92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway", "Gateway\Gateway.csproj", "{532413A3-E1EF-4834-A773-00609967ED92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog", "Catalog\Catalog.csproj", "{613BDE51-C1BE-4533-8887-A16F7AF591AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog", "Catalog\Catalog.csproj", "{613BDE51-C1BE-4533-8887-A16F7AF591AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buyer", "Buyer\Buyer.csproj", "{B8BE22E2-CE73-4AE7-BF55-A8586B3391EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{613BDE51-C1BE-4533-8887-A16F7AF591AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{613BDE51-C1BE-4533-8887-A16F7AF591AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{613BDE51-C1BE-4533-8887-A16F7AF591AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8BE22E2-CE73-4AE7-BF55-A8586B3391EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8BE22E2-CE73-4AE7-BF55-A8586B3391EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8BE22E2-CE73-4AE7-BF55-A8586B3391EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8BE22E2-CE73-4AE7-BF55-A8586B3391EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
