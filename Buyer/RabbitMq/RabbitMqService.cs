@@ -18,7 +18,7 @@ namespace Buyer.RabbitMq
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "catalog",
+                channel.QueueDeclare(queue: "BuyerToCatalog",
                                durable: false,
                                exclusive: false,
                                autoDelete: false,
@@ -27,7 +27,7 @@ namespace Buyer.RabbitMq
                 var body = Encoding.UTF8.GetBytes(message);
 
                 channel.BasicPublish(exchange: "",
-                               routingKey: "catalog",
+                               routingKey: "BuyerToCatalog",
                                basicProperties: null,
                                body: body);
             }

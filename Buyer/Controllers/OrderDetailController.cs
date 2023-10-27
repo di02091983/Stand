@@ -1,5 +1,6 @@
 using Buyer.Data;
 using Buyer.Models;
+using Buyer.RabbitMq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,11 +12,13 @@ namespace Buyer.Controllers
     {
         readonly ApplicationDbContext _db;
         private readonly ILogger<OrderDetailController> _logger;
+        private readonly IRabbitMqService _mqService;
 
-        public OrderDetailController([FromServices] ApplicationDbContext db, ILogger<OrderDetailController> logger)
+        public OrderDetailController([FromServices] ApplicationDbContext db, ILogger<OrderDetailController> logger, IRabbitMqService mqService)
         {
             _db = db;
             _logger = logger;
+            _mqService = mqService;
         }
 
         [HttpGet(Name = "GetOrderDetails")]
@@ -34,12 +37,14 @@ namespace Buyer.Controllers
         }
 
         [HttpPost(Name = "AddOrderDetail")]
-        public async Task<IActionResult> AddOrderDetail(OrderDetail OrderDetail)
+        public async Task<IActionResult> AddOrderDetail(OrderDetail orderDetail)
         {
-            _db.OrderDetails.Add(OrderDetail);
+            _db.OrderDetails.Add(orderDetail);
 
             try
             {
+                _mqService.SendMessage(orderDetail);
+
                 await _db.SaveChangesAsync();
                 return Ok();
             }
