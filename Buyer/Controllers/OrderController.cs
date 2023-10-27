@@ -50,7 +50,7 @@ namespace Buyer.Controllers
             }
         }
 
-        [HttpPost(Name = "CancelOrder")]
+        [HttpPut(Name = "CancelOrder")]
         public async Task<IActionResult> CancelOrder(Guid orderId)
         {
             try
