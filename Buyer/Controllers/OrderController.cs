@@ -50,32 +50,7 @@ namespace Buyer.Controllers
             }
         }
 
-        [HttpPut(Name = "CancelOrder")]
-        public async Task<IActionResult> CancelOrder(Guid orderId)
-        {
-            try
-            {
-                var order = await _db.Orders.Where(x => x.Id == orderId).FirstOrDefaultAsync();
-
-                if (order == null)
-                {
-                    return BadRequest();
-                }
-
-                order.Status = 2;
-                _db.Update(order);
-
-                await _db.SaveChangesAsync();
-                return Ok();
-            }
-            catch (DbUpdateException e)
-            {
-                _logger.LogError(e, "Exception in " + this.GetType().Name + "::" + System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name);
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
-        }
-
-        [HttpPost(Name = "TakeOrder")]
+        [HttpPut(Name = "TakeOrder")]
         public async Task<IActionResult> TakeOrder(Guid orderId)
         {
             try
@@ -88,6 +63,31 @@ namespace Buyer.Controllers
                 }
 
                 order.Status = 3;
+                _db.Update(order);
+
+                await _db.SaveChangesAsync();
+                return Ok();
+            }
+            catch (DbUpdateException e)
+            {
+                _logger.LogError(e, "Exception in " + this.GetType().Name + "::" + System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name);
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        [HttpDelete(Name = "CancelOrder")]
+        public async Task<IActionResult> CancelOrder(Guid orderId)
+        {
+            try
+            {
+                var order = await _db.Orders.Where(x => x.Id == orderId).FirstOrDefaultAsync();
+
+                if (order == null)
+                {
+                    return BadRequest();
+                }
+
+                order.Status = 2;
                 _db.Update(order);
 
                 await _db.SaveChangesAsync();
